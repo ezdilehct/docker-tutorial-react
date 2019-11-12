@@ -1,0 +1,9 @@
+sudo: required
+service:
+  - docker
+
+before_install:
+  - docker build -t tchelidze/docker-tut-react -f Dockerfile.dev
+
+script:
+  - docker run tchelidze/docker-tut-react npm run test -- --coverage
